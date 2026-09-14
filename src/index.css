@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #f8fafc;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-dim: #e2e8f0;
+  --color-surface-bright: #ffffff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #64748b;
+  --color-outline: #94a3b8;
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #6366f1;
+  
+  --color-primary: #4f46e5;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #e0e7ff;
+  --color-on-primary-container: #312e81;
+  --color-inverse-primary: #818cf8;
+  
+  --color-secondary: #d97706;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fef3c7;
+  --color-on-secondary-container: #b45309;
+  
+  --color-tertiary: #16a34a;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #dcfce7;
+  --color-on-tertiary-container: #15803d;
+  --color-tertiary-fixed-dim: #22c55e;
+  
+  --color-error: #dc2626;
+  --color-on-error: #ffffff;
+  --color-error-container: #fee2e2;
+  --color-on-error-container: #991b1b;
+  
+  --font-inter: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Custom typography utility classes via Tailwind 4's theme variables */
+  --text-display-lg: 36px;
+  --text-display-lg--line-height: 40px;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
+  
+  --text-display-sm: 30px;
+  --text-display-sm--line-height: 36px;
+  --text-display-sm--letter-spacing: -0.02em;
+  --text-display-sm--font-weight: 700;
+
+  --text-headline: 20px;
+  --text-headline--line-height: 28px;
+  --text-headline--letter-spacing: -0.01em;
+  --text-headline--font-weight: 700;
+
+  --text-body: 16px;
+  --text-body--line-height: 24px;
+  
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 20px;
+  
+  --text-label: 11px;
+  --text-label--line-height: 16px;
+  --text-label--letter-spacing: 0.1em;
+  --text-label--font-weight: 700;
+
+  --text-data: 14px;
+  --text-data--line-height: 20px;
+  --text-data--letter-spacing: -0.01em;
+  --text-data--font-weight: 600;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-background font-inter antialiased;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline);
+}
+
+.card-shadow {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.document-shadow {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 10px 24px rgba(0,0,0,0.03);
+}

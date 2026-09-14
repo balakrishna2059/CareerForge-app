@@ -1,0 +1,6 @@
+{
+  "name": "CareerForge",
+  "description": "A responsive full-stack web application designed as a professional career operating system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,92 @@
+{
+  "collections": [
+    {
+      "name": "users",
+      "rules": [
+        {
+          "allow": ["read", "write"],
+          "condition": "request.auth != null && request.auth.uid == documentId"
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "name": "jobs",
+      "rules": [
+        {
+          "allow": ["read"],
+          "condition": "request.auth != null"
+        },
+        {
+          "allow": ["write"],
+          "condition": "false"
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "name": "applications",
+      "rules": [
+        {
+          "allow": ["read", "write", "create", "delete"],
+          "condition": "request.auth != null && request.auth.uid == resourceData.userId",
+          "createCondition": "request.auth != null && request.auth.uid == request.resource.data.userId"
+        }
+      ],
+      "indexes": [
+        {
+          "fields": ["userId", "lastUpdate"],
+          "queryExample": "applicationsRef.where('userId', '==', uid).orderBy('lastUpdate', 'desc')"
+        }
+      ]
+    },
+    {
+      "name": "projects",
+      "rules": [
+        {
+          "allow": ["read", "write", "create", "delete"],
+          "condition": "request.auth != null && request.auth.uid == resourceData.userId",
+          "createCondition": "request.auth != null && request.auth.uid == request.resource.data.userId"
+        }
+      ],
+      "indexes": [
+        {
+          "fields": ["userId", "createdAt"],
+          "queryExample": "projectsRef.where('userId', '==', uid).orderBy('createdAt', 'desc')"
+        }
+      ]
+    },
+    {
+      "name": "skills",
+      "rules": [
+        {
+          "allow": ["read", "write", "create", "delete"],
+          "condition": "request.auth != null && request.auth.uid == resourceData.userId",
+          "createCondition": "request.auth != null && request.auth.uid == request.resource.data.userId"
+        }
+      ],
+      "indexes": [
+        {
+          "fields": ["userId", "proficiency"],
+          "queryExample": "skillsRef.where('userId', '==', uid).orderBy('proficiency', 'desc')"
+        }
+      ]
+    },
+    {
+      "name": "experiences",
+      "rules": [
+        {
+          "allow": ["read", "write", "create", "delete"],
+          "condition": "request.auth != null && request.auth.uid == resourceData.userId",
+          "createCondition": "request.auth != null && request.auth.uid == request.resource.data.userId"
+        }
+      ],
+      "indexes": [
+        {
+          "fields": ["userId", "startDate"],
+          "queryExample": "experiencesRef.where('userId', '==', uid).orderBy('startDate', 'desc')"
+        }
+      ]
+    }
+  ]
+}
